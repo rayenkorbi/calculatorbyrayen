@@ -1,0 +1,61 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background: #295F98 ;
+}
+
+.calculator-grid {
+    display: grid;
+    margin-top: 2rem;
+    justify-content: center; /*centers the calculator*/
+    grid-template-columns: repeat(4 , 6rem); /*gives us 4 different columns with the size of 6rem each*/
+    grid-template-rows: minmax(7rem , auto) repeat(5 , 6rem); /*minmax(7rem , auto):we want our first row height to be 7rem that it expands 'auto' whene we enter a large number */
+    /*repeat(5 , 6rem) : the rest 5 rows will be the size 6rem*/
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.356);
+    border-radius: 5px;
+    outline: none;
+    background-color: #b0c2c7;
+}
+
+.calculator-grid > button:hover ,
+.calculator-grid > button:focus{
+    background-color: #95abb1;
+    font-size: 2.04rem;
+}
+
+/*we want our large button to be twice the size of the other buttons*/
+.span-two {
+    grid-column: span 2 ;
+}
+
+/*we want our output to span all across the top of the buttons*/
+.output {
+    grid-column: 1/-1;
+    background-color: #1E201E;
+    border-radius: 9px;
+    display: flex; /*change the property of the div to make it flexbox*/
+    flex-direction: column; /*makes the output flex verticaly not horizontaly*/
+    align-items: flex-end; /*transforms the output to the righmost point of the div*/
+    justify-content: space-around; /*spaces previous-operand away from current-operand as much as possible*/
+    padding: 0.75rem;
+    word-wrap: break-word;
+    word-break: break-all;/*whene we have a really long output it will but cut in as much rows as we need*/
+}
+
+.output .previous-operand {
+    color: #CDC2A5;
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: #EAE4DD;
+    font-size: 2.5rem;
+}
